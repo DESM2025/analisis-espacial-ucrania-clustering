@@ -19,7 +19,6 @@ with left_col:
 - análisis geoespacial
 - dataset de conflictos
 - dataset guerra de Ucrania
-- aprendizaje no supervisado
 - análisis táctico en Ucrania
 """
     )
@@ -32,51 +31,52 @@ with right_col:
 st.subheader("Prompt usado")
 st.code(
     'Ayúdame a recopilar información o a encontrar dataset en base a las siguientes palabras clave para un proyecto '
-    'sobre segmentación espacial con K-Means para la guerra de Ucrania: [clustering, '
+    'sobre segmentación espacial para la guerra de Ucrania: [clustering, '
     'algoritmo de K-Means , análisis geoespacial, dataset de conflictos, aprendizaje no supervisado, '
     'análisis táctico en Ucrania,dataset guerra de Ucrania, dinamica del frente]. Dame términos técnicos, variantes usadas '
     'en papers o paginas que recopilan informacion y como más importante dataset de fuentes confiables y de fácil descarga.',
     language="text",
 )
 
+
 st.subheader("Expansión con IA")
 st.markdown(
     """
-- Analisis de patrondes de puntos 
+- Analisis de patrones de puntos 
 - ACLED(Armed Conflict Location & Event Data Project)
 - Geolocation Intelligence (GEOINT)
 - Clustering espacial basado en densidad
 - UCDP
+- DBSCAN
 - Warfare Informatics
+- Aprendizaje no supervisado
 """
 )
 
 st.subheader("Validación humana")
 st.markdown(
     """
-Se comprobo que "clustering" es el concepto teorico correcto para agrupar coordenadas masivas sin sesgo visual. Sobre K-Means, 
-se valido al buscar casos similares que puede ser utilizado para datos geoespaciales porque agrupa por cercania matematica, 
-lo que en teoria resuelve perfectamente el problema de segmentar el mapa en zonas tacticas
+Se comprobó que "clustering" es el concepto teórico correcto para agrupar coordenadas masivas sin sesgo visual. 
+Al investigar algoritmos espaciales, se validó que tanto K-Means como DBSCAN son viables para datos geoespaciales, 
+ya que agrupan por cercanía matemática y densidad. Esto permite evaluar metodológicamente cuál de los dos segmenta mejor el mapa en zonas tácticas operativas.
 
-Al revisar UCDP(Uppsala Conflict Data Program) se comprobo que es la fuente de referencia para la ONU y es de 
-libre acceso pero tiene el problema de que sus datos se actualizan mas lento y omiten incidentes menores.
+Al revisar UCDP (Uppsala Conflict Data Program) se comprobó que es la fuente de referencia para la ONU y es de libre acceso, pero 
+presenta el problema de que sus datos se actualizan más lento y omiten incidentes menores de infantería, lo cual es perjudicial para mapear una guerra de trincheras.
 
-El término ACLED que mencionó la IA es el Armed Conflict Location & Event Data
-Project, una organización que funciona como un observatorio de crisis y documenta
-incidentes de violencia política a nivel mundial. Se validó como la fuente más robusta sobre UCDP pero 
-fue requerido solicitar un acceso a nivel Research (Investigador) para uso académico mediante correo, 
-cosa que la ia no menciono y esta aseguraba que no era necesario para obtener los datos.
+El término ACLED que mencionó la IA (Armed Conflict Location & Event Data Project) corresponde a una organización que funciona como un 
+observatorio de crisis a nivel mundial. Se validó como la fuente empírica más robusta para este proyecto, superando a UCDP por su alta granularidad. 
+Sin embargo, fue requerido solicitar acceso nivel Research (Investigador) mediante correo para uso académico, una restricción de seguridad que la IA 
+omitió inicialmente al asegurar que los datos eran de descarga libre.
 
-Durante la investigación se identificó una restricción metodológica de la plataforma pues el
-acceso a los datos de coordenadas exactas tiene un embargo para los últimos
-12 meses para las cuentas de investigador. Por lo tanto, el proyecto de llevarse a cabo debera aplicarse sobre
-una ventana temporal específica y consolidada del conflicto (desde antes de marzo de 2025).
+Durante la exploración técnica de la API de ACLED, se identificó una restricción estricta: el acceso a las coordenadas exactas 
+tiene un embargo de 12 meses para las cuentas de investigador. Por lo tanto, de usarse este datsetel el proyecto debera hacerce en una ventana 
+de tiempo anterior a marzo de 2025.
 
-Además, se descartaron términos muy generales como aprendizaje no supervisado en favor de
-análisis de Patrones de Puntos para enfocar la búsqueda exacta.
+Además, se descartaron términos de búsqueda muy generales como "aprendizaje no supervisado" en favor de conceptos precisos como "Análisis de Patrones de Puntos" y 
+"Clustering Espacial".
 
-Para la investigación de informacion se utilizó Gemini Pro 3.1, y para la parte de código de la pagina 
-se utilizó GitHub Copilot con el modelo GPT-5.3-Codex.
+Para la investigación de información, estructuración teórica y validación metodológica se utilizó Gemini 3.1 Pro, y para la parte de código de la página web se 
+utilizó GitHub Copilot con el modelo GPT-5.3-Codex.
 """
 )
 
@@ -88,6 +88,7 @@ with final_left:
         """
 - Spatial Clustering(Agrupamiento Espacial)
 - K-Means
+- DBSCAN
 - Análisis de Patrones de Puntos
 - GEOINT (Geospatial Intelligence)
 - Armed conflict data
